@@ -344,7 +344,7 @@ Create user</con:description>
         <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:dataSource type="Excel">
             <con:configuration>
-              <file>C:/Main CodeBase/readyapitest/logindata.xlsx</file>
+              <file>C:/Main CodeBase/readyapitest/swagger/logindata.xlsx</file>
               <worksheet/>
               <cell>A2</cell>
               <ignoreEmpty>false</ignoreEmpty>
@@ -363,10 +363,10 @@ Create user</con:description>
           <con:restartOnRun>true</con:restartOnRun>
         </con:config>
       </con:testStep>
-      <con:testStep type="restrequest" name="/user POST Request 1" id="41c9645d-6af7-4e86-9854-54435e52226b">
+      <con:testStep type="restrequest" name="post" id="41c9645d-6af7-4e86-9854-54435e52226b">
         <con:settings/>
         <con:config service="Swagger Petstore" resourcePath="/v2/user" methodName="createUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="/user POST Request 1" id="9318d494-9472-4cea-997f-e90fadc23875" mediaType="application/json" postQueryString="false">
+          <con:restRequest name="post" id="9318d494-9472-4cea-997f-e90fadc23875" mediaType="application/json" postQueryString="false">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
             </con:settings>
@@ -475,10 +475,10 @@ Create user</con:description>
           </con:restRequest>
         </con:config>
       </con:testStep>
-      <con:testStep type="restrequest" name="/user/login GET Request 1" id="66779ae0-e00b-4377-bc2f-30b519f30e46">
+      <con:testStep type="restrequest" name="login" id="66779ae0-e00b-4377-bc2f-30b519f30e46">
         <con:settings/>
         <con:config service="Swagger Petstore" resourcePath="/v2/user/login" methodName="loginUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="/user/login GET Request 1" id="b2b9cbf4-2dc6-49f5-9da8-57f1ccc70f2d" mediaType="application/json">
+          <con:restRequest name="login" id="b2b9cbf4-2dc6-49f5-9da8-57f1ccc70f2d" mediaType="application/json">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
             </con:settings>
@@ -509,15 +509,15 @@ Create user</con:description>
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters>
               <con:entry key="password" value="${/user/{username} GET Request 1#Response#$['password']}"/>
-              <con:entry key="username" value="${/user/{username} GET Request 1#Response#$['username']}"/>
+              <con:entry key="username" value="${getusername#Response#$['username']}"/>
             </con:parameters>
           </con:restRequest>
         </con:config>
       </con:testStep>
-      <con:testStep type="restrequest" name="/user/logout GET Request 1" id="21e7b742-6e66-46d8-888e-937bde59e24f">
+      <con:testStep type="restrequest" name="logout" id="21e7b742-6e66-46d8-888e-937bde59e24f">
         <con:settings/>
         <con:config service="Swagger Petstore" resourcePath="/v2/user/logout" methodName="logoutUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="/user/logout GET Request 1" id="e7300406-3337-4508-8904-05a605174992" mediaType="application/json">
+          <con:restRequest name="logout" id="e7300406-3337-4508-8904-05a605174992" mediaType="application/json">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
             </con:settings>
@@ -550,10 +550,10 @@ Create user</con:description>
           </con:restRequest>
         </con:config>
       </con:testStep>
-      <con:testStep type="restrequest" name="/user/{username} DELETE Request 1" id="78e5b005-7a15-4cb0-b2a1-84afb07ef879">
+      <con:testStep type="restrequest" name="delete" id="78e5b005-7a15-4cb0-b2a1-84afb07ef879">
         <con:settings/>
         <con:config service="Swagger Petstore" resourcePath="/v2/user/{username}" methodName="deleteUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="/user/{username} DELETE Request 1" id="349a097d-f862-4c39-a485-30ae7afc8263" mediaType="application/json" postQueryString="false">
+          <con:restRequest name="delete" id="349a097d-f862-4c39-a485-30ae7afc8263" mediaType="application/json" postQueryString="false">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
             </con:settings>
@@ -594,7 +594,7 @@ Create user</con:description>
           <con:dataSink type="Excel">
             <con:configuration>
               <file/>
-              <outfile>C:/Main CodeBase/readyapitest/logindata.xlsx</outfile>
+              <outfile>C:/Main CodeBase/readyapitest/swagger/logindata.xlsx</outfile>
               <worksheet>Sheet1</worksheet>
               <cell>H2</cell>
               <evaluateFormulas>true</evaluateFormulas>
@@ -604,7 +604,7 @@ Create user</con:description>
           <con:properties>
             <con:property>
               <con:name>post_reponse</con:name>
-              <con:value>${/user POST Request 1#Response#$['code']}</con:value>
+              <con:value>${post#Response#$['code']}</con:value>
             </con:property>
             <con:property>
               <con:name>put_reponse</con:name>
@@ -616,15 +616,15 @@ Create user</con:description>
             </con:property>
             <con:property>
               <con:name>loginresponse</con:name>
-              <con:value>${/user/login GET Request 1#Response#$['code']}</con:value>
+              <con:value>${login#Response#$['code']}</con:value>
             </con:property>
             <con:property>
               <con:name>logout response</con:name>
-              <con:value>${/user/logout GET Request 1#Response#$['code']}</con:value>
+              <con:value>${logout#Response#$['code']}</con:value>
             </con:property>
             <con:property>
               <con:name>deleteresponse</con:name>
-              <con:value>${/user/{username} DELETE Request 1#Response#$['code']}</con:value>
+              <con:value>${delete#Response#$['code']}</con:value>
             </con:property>
           </con:properties>
         </con:config>
