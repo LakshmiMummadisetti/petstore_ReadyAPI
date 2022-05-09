@@ -417,7 +417,7 @@ Create user</con:description>
             <con:endpoint>http://petstore.swagger.io</con:endpoint>
             <con:request>{\r
   "username" : "${Data Source#updated_username}",\r
-  "firstName" : "chervik",\r
+  "firstName" : "${Data Source#firstName}",\r
   "lastName" : "${Data Source#lastName}",\r
   "email" : "${Data Source#email}",\r
   "password" : "${Data Source#password}",\r
